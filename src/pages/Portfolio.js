@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 
-const IndexPage = () => (
+const Portfolio = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Home</h1>
+    <h1>Portfolio</h1>
     <Link activeStyle={{ color: 'red' }} to="/">
       Home
     </Link>
@@ -20,4 +18,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default Portfolio
