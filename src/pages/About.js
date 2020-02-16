@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 
-const About = () => (
+const AboutPage = () => (
   <Layout>
     <h1>Sobre</h1>
     <Link activeStyle={{ color: 'red' }} to="/">
@@ -18,4 +18,4 @@ const About = () => (
   </Layout>
 )
 
-export default About
+export default AboutPage

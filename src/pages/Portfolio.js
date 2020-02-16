@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 
-const Portfolio = () => (
+const PortfolioPage = () => (
   <Layout>
     <h1>Portfolio</h1>
     <Link activeStyle={{ color: 'red' }} to="/">
@@ -18,4 +18,4 @@ const Portfolio = () => (
   </Layout>
 )
 
-export default Portfolio
+export default PortfolioPage
