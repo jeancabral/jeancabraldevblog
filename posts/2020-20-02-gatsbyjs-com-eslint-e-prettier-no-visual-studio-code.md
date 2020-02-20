@@ -1,8 +1,8 @@
 ---
 date: 2020-20-02
-title: GatsbyJS com Eslint e Prettier no Visual Studio Code
-description: GatsbyJS: Configurando Eslint e Prettier no Visual Studio Code
-category: Misc
+title: "GatsbyJS: Configurando Eslint e Prettier no Visual Studio Code"
+description: "Neste artigo vamos configurar nosso editor para padronizar e formatar nosso código de forma automática, deixando-nos livres para pensar sobre a funcionalidade do nosso app"
+category: JS
 background: "#7aab13"
 ---
 

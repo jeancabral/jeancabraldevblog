@@ -5,11 +5,11 @@ const links = [
   },
   {
     label: 'Portfolio',
-    url: '/Portfolio/',
+    url: '/portfolio/',
   },
   {
     label: 'About',
-    url: '/About/',
+    url: '/about/',
   },
 ]
 
