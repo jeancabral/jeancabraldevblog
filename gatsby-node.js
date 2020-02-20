@@ -24,6 +24,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+/**
+ * Cria a página dos posts baseado no slug
+ */
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
