@@ -9,24 +9,14 @@ import PostItem from '../components/PostItem'
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Home</h1>
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
+    <PostItem
+      slug="/about/"
+      category="Misc"
+      date="30 de Julho de 2019"
+      timeToRead="5"
+      title="Id qui ex sint laborum consectetur do commodo."
+      description="Voluptate laboris reprehenderit ipsum labore laboris officia ipsum sint culpa magna qui commodo consequat. Sint sint Lorem voluptate sint ipsum et nostrud Lorem proident aute sit officia incididunt anim. Pariatur et culpa occaecat consectetur esse Lorem laborum aute anim qui. Qui qui non excepteur pariatur dolor ipsum duis sit commodo."
+    />
   </Layout>
 )
 
