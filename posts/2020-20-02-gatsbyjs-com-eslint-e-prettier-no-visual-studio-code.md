@@ -25,7 +25,7 @@ Depois de instalar o ESLint em nosso projeto vamos iniciar a configuração atra
 
 <strong>`$ yarn eslint --init`</strong>
 
-<pre>
+```javascript
 - How would you like to use ESLint?
 > To check syntax, find problems, and enforce code style
 
@@ -49,7 +49,7 @@ Depois de instalar o ESLint em nosso projeto vamos iniciar a configuração atra
 
 - Would you like to install them now with npm? (Y/n)
 > Y
-</pre>
+```
 
 > 🗒 Ao final do processo eu apago o arquivo <strong>`package-lock.json`</strong> e rodo o comando <strong>`yarn install`</strong> para atualizar o <strong>`yarn.lock`</strong>. Pois o Gatsby utiliza o <strong>`yarn`</strong> como gerenciador de dependências do projeto.
 
@@ -65,11 +65,11 @@ Vamos adicionar o seguinte pacote ao projeto que irá desabilitar todas as regra
 
 Ao final do processo edite o arquivo <strong>`.eslintrc.json`</strong> para incluir essa configuração.
 
-<pre>
+```javascript
 {
   "extends": ["airbnb", "prettier", "prettier/react"]
 }
-</pre>
+```
 
 Este pacote desabilita todas as regras do ESLint relacionadas à formatação.
 
@@ -79,14 +79,14 @@ O próximo passo é o pacote é o Plugin Prettier para ESLint. Este plugin faz c
 
 Para utilizá-lo, adicione, o código a seguir, no arquivo <strong>`.eslintrc.json`</strong>
 
-<pre>
+```javascript
 "plugins": [
   "prettier"
 ],
 "rules": {
   "prettier/prettier": "error"
 }
-</pre>
+```
 
 ### Regras adicionais
 
@@ -94,7 +94,7 @@ Embora a guia de estilo do <strong>`Airbnb`</strong> seja excelente em seu conju
 
 Usaremos a configuração existente no arquivo <strong>`.eslintrc.json`</strong> como ponto de partida e vamos adicionar algumas regras específicas ao Prettier em nossa configuração ESLint.
 
-<pre>
+```javascript
 // .eslintrc.json
 module.exports = {
   env: {
@@ -173,17 +173,17 @@ module.exports = {
     ]
 }
 };
-</pre>
+```
 
 
 ##### Configuração para o Gatsby
-<pre>
+```javascript
   settings: {
     'import/core-modules': [
         "react"
     ]
 }
-</pre>
+```
 
 > Como iniciamos o projeto pelo Gatsby, iremos adicionar o pacote React para que o ESLint não nos avise sobre as importações não existentes.
 
@@ -193,7 +193,7 @@ Antes de prosseguir, vamos configurar o VSCode para executar o eslint e o pretti
 
 Abra as configurações do usuário (em modo JSON) em pelo menu <strong>`[File> Preferences > Settings]`</strong> ou pelo atalho <kbd>Ctrl+,</kbd>.
 
-<pre>
+```javascript
   // Eslint Prettier
   "editor.formatOnSave": true,
   "[javascript]": {
@@ -209,41 +209,41 @@ Abra as configurações do usuário (em modo JSON) em pelo menu <strong>`[File> 
     "source.fixAll.eslint": true
   },
   "eslint.alwaysShowStatus": true,
-</pre>
+```
 
 #### Explicando por partes:
 
 - A entrada `editor.formatOnSave` faz com que o VSCode formate o documento sempre que salvar um arquivo.
 
-<pre>
+```javascript
   "editor.formatOnSave": true,
-</pre>
+```
 
 
 - Desativa explicitamente a formatação para arquivos javascript, pois iremos formatar através do ESLint.
 
-<pre>
+```javascript
   "[javascript]": {
     "editor.formatOnSave": false,
   },
   "[javascriptreact]": {
     "editor.formatOnSave": false,
   },
-</pre>
+```
 
 - Executa o ESLint em cada salvamento (com o sinalizador --fix).
 
-<pre>
+```javascript
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-</pre>
+```
 
 - Força o ESLint para sempre mostrar seu status na parte inferior do VSCode 
 
-<pre>
+```javascript
   "eslint.alwaysShowStatus": true,
-</pre>
+```
 
 ### Considerações
 
