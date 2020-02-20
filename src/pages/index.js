@@ -20,6 +20,9 @@ const IndexPage = () => {
               title
             }
             timeToRead
+            fields {
+              slug
+            }
           }
         }
       }
@@ -31,17 +34,25 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      {postList.map(({ node: { frontmatter: { background, category, date, description, title }, timeToRead } }) => (
-        <PostItem
-          slug="/about/"
-          background={background}
-          category={category}
-          date={date}
-          timeToRead={timeToRead}
-          title={title}
-          description={description}
-        />
-      ))}
+      {postList.map(
+        ({
+          node: {
+            frontmatter: { background, category, date, description, title },
+            timeToRead,
+            fields: { slug },
+          },
+        }) => (
+          <PostItem
+            slug={slug}
+            background={background}
+            category={category}
+            date={date}
+            timeToRead={timeToRead}
+            title={title}
+            description={description}
+          />
+        )
+      )}
     </Layout>
   )
 }
