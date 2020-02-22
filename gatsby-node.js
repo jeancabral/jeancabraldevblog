@@ -25,7 +25,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 /**
- * Cria a página dos posts baseado no slug
+ * Criação da Página dos posts baseado no slug
  */
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -33,10 +33,18 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(
     `
-      {
+      query PostList {
         allMarkdownRemark {
           edges {
             node {
+              frontmatter {
+                background
+                category
+                date(formatString: "DD [de] MMMM [de] YYYY", locale: "pt-br")
+                description
+                title
+              }
+              timeToRead
               fields {
                 slug
               }
@@ -50,14 +58,34 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
+    const posts = result.data.allMarkdownRemark.edges
+
     // Create blog post pages.
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    posts.forEach(({ node }) => {
       createPage({
         // Path for this page — required
         path: `${node.fields.slug}`,
         component: blogPostTemplate,
         context: {
           slug: node.fields.slug,
+        },
+      })
+    })
+
+    const postsPerPage = 6
+    const numPages = Math.ceil(posts.length / postsPerPage)
+
+    const blogListTemplate = path.resolve(`./src/templates/blog-list.js`)
+
+    Array.from({ length: numPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? `/` : `/page/${index + 1}`,
+        component: blogListTemplate,
+        context: {
+          limit: postsPerPage,
+          skip: index * postsPerPage,
+          numPages,
+          currentPage: index + 1,
         },
       })
     })
